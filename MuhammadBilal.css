@@ -1,0 +1,316 @@
+*
+{
+    margin:0;
+    padding:0;
+
+}
+body{
+    font-family: 'Exo 2', sans-serif;
+  
+   
+}
+main{
+    position: relative;
+  
+    
+
+}
+.TOP
+{
+    position: relative;
+}
+
+#BG
+{
+    height:100%;
+    width:100%;
+    object-fit: contain;
+    object-position: center;
+    opacity:1;
+    z-index:-100;
+ 
+    
+}
+
+#Circle
+{
+    width:19%;
+    height:32%;
+    background-color: rgb(54, 54, 54);
+    position: absolute;
+    bottom:5%;
+    left:4%;
+    border-radius: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  
+}
+
+.icon
+{
+    position: absolute;
+    text-align: center;
+    margin:0 auto;
+    display: inline-block;
+    color:white;
+    opacity:1;
+    transition: ease all;
+    z-index:100;
+    
+}
+
+.icon:hover
+{
+    cursor: pointer;
+    color:white;
+    animation-name: dance;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: backwards;
+    animation-iteration-count: infinite;
+
+}
+.letters
+{
+    position: relative;
+    
+    height:12%;
+    width:12%;
+}
+.F,.O,.R,.S,.P,.O2,.K,.E,.N{
+    position: absolute;
+    color:white;
+    text-align: center;
+    margin:0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor:pointer;
+    width:100%;
+    height:100%;
+    transition:all ease .5s;
+    
+ 
+}
+
+.GameArea
+{
+  
+    height:30%;
+    width:40%;
+    position: absolute;
+    top:2%;
+    left:18%;
+
+}
+.LetterSelectedArea
+{
+    position: absolute;
+    
+    width:15%;
+    height:8%; 
+    left:2%;
+     top: 54%;
+     color:rgb(255, 255, 255);
+     visibility: hidden;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+  
+     
+    
+
+}
+
+span{
+
+  
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:70%;
+    width:12%;
+    background-color: #337231;
+    
+}
+
+.W1
+{
+  
+   
+    width:20%;
+    position: relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    top:90px;
+    left:156px;
+}
+.W2{
+         width:10%;
+
+         position: relative;
+         display: flex;
+       color:white;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       left:62px;
+       top:-45px;
+}
+.W3
+{
+    width:10%;
+
+    position: relative;
+    display: flex;
+  color:white;
+  flex-direction: column;
+  justify-content: center;
+       align-items: center;
+  left:280px;
+  top:-226px;
+}
+.W4
+{
+    width:10%;
+
+    position: relative;
+    display: flex;
+  color:white;
+  flex-direction: column;
+  justify-content: center;
+       align-items: center;
+  left:136px;
+  top:-360px;
+}
+
+.W5
+{
+    width:20%;
+    position: relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    top:-530px;
+    left:150px;
+}
+
+.W5 div{
+    width:20%;
+    color:black;
+    padding:8px;
+    margin-right:10px;
+    background-color: white;
+}
+
+.W6
+{  
+     
+    width:20%;
+    position: relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    top:-790px;
+    left:100px;
+    
+}
+.W6 div{
+    
+    width:20%;
+    color:black;
+    padding:8px;
+    margin-right:10px;
+    background-color: white;
+}
+.W1 div{
+
+    
+  
+    width:20%;
+    color:black;
+    padding:8px;
+    margin-right:10px;
+    background-color: white;
+}
+.W2 div{
+    
+    width:20%;
+    color:black;
+    padding:8px;
+    background-color: white;
+    margin-top:10px;
+
+}
+.W3 div{
+    width:20%;
+    color:black;
+    padding:8px;
+    background-color: white;
+    margin-top:10px;
+
+}
+
+.W4 div{
+    width:20%;
+    color:black;
+    padding:8px;
+    background-color: white;
+    margin-top:10px; 
+}
+
+@keyframes dance {
+   
+    10%
+    {
+        color:red;
+    }
+    20%
+    {
+        color:aqua;
+    }
+
+    30%
+    {
+            color:yellow;
+    }
+    40%
+    {
+       color:rgb(68, 167, 126);
+    }
+    50%
+    {
+        color:rgb(180, 56, 128);
+
+    }
+    60%
+    {
+        color:rgb(139, 190, 43);
+    }
+    70%
+    {
+        color:rgb(80, 150, 91);
+    }
+
+    80%
+    {
+            color:rgb(206, 89, 36);
+    }
+    90%
+    {
+       color:rgb(212, 168, 23);
+    }
+    100%
+    {
+        color:rgb(180, 23, 146);
+
+    }
+}
