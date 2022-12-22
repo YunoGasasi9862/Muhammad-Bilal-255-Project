@@ -1,5 +1,7 @@
 
  var NameArray=['.F','.O','.R','.S', '.P', '.O2', '.K','.E','.N']; //yayay worked!!
+ var Words =['.W1  div > div', '.W2  div > div', '.W3  div > div', '.W4  div > div',
+              '.W5  div > div','.W6  div > div'];
  var selected=false;
  var index;
  var letter=false;
@@ -28,8 +30,19 @@ $(function()
       }
   })
 
+  $(".Bulb").click(function()
+  {
+          for(var i=0; i<Words.length; i++)
+          {
+               $(`${Words[i]}`).animate({opacity:.6},1000, function()
+               {
+                       $(this).animate({opacity:0},1000);
+               });
+          }
+  })
+
   checkClick();
- 
+  
    
 
 
