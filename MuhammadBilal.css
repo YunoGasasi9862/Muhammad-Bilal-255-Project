@@ -5,7 +5,12 @@
 
 }
 body{
+    
+  
     font-family: 'Exo 2', sans-serif;
+    height:700px;
+    width: 1200px;
+    margin:0 auto;
   
    
 }
@@ -17,6 +22,7 @@ main{
 }
 .TOP
 {
+    margin-top:60px;
     position: relative;
 }
 
@@ -32,13 +38,50 @@ main{
     
 }
 
+.Bulb
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    position: relative;
+    top:-170px;
+    left:30%;
+    height:50px;
+    width:50px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 100px;
+    background-color: rgb(136, 76, 7);
+    transition: background-color 1s, transform 1s;
+
+
+ 
+
+} 
+.W1  div > div, .W2 > div > div, .W3 > div > div, .W4 > div > div,  .W5 > div > div .W6 > div > div{
+    
+      
+}
+.Bulb:hover
+{
+    background-color: rgb(110, 51, 150);
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    cursor:pointer;
+
+}
+
 #Circle
 {
     width:19%;
     height:32%;
     background-color: rgb(54, 54, 54);
     position: absolute;
-    bottom:5%;
+    bottom:10%;
     left:4%;
     border-radius: 100%;
     text-align: center;
@@ -98,9 +141,7 @@ main{
 
 .GameArea
 {
-  
-    height:30%;
-    width:40%;
+ 
     position: absolute;
     top:2%;
     left:18%;
@@ -113,7 +154,7 @@ main{
     width:15%;
     height:8%; 
     left:2%;
-     top: 54%;
+     top: 49%;
      color:rgb(255, 255, 255);
      visibility: hidden;
      display: flex;
@@ -138,11 +179,12 @@ span{
     
 }
 
+
 .W1
 {
   
    
-    width:20%;
+    width:70px;
     position: relative;
     display:flex;
     justify-content: center;
@@ -152,16 +194,17 @@ span{
     left:156px;
 }
 .W2{
-         width:10%;
 
+    width:70px;
+         
          position: relative;
          display: flex;
        color:white;
        flex-direction: column;
        justify-content: center;
        align-items: center;
-       left:62px;
-       top:-45px;
+       left:30px;
+       top:-54px;
 }
 .W3
 {
@@ -173,9 +216,10 @@ span{
   flex-direction: column;
   justify-content: center;
        align-items: center;
-  left:280px;
-  top:-226px;
+  left:282px;
+  top:-225px;
 }
+
 .W4
 {
     width:10%;
@@ -204,6 +248,7 @@ span{
 
 .W5 div{
     width:20%;
+    
     color:black;
     padding:8px;
     margin-right:10px;
@@ -236,20 +281,43 @@ span{
     
   
     width:20%;
+   
     color:black;
-    padding:8px;
+   padding: 5px 8px;
+
     margin-right:10px;
     background-color: white;
+   
+    
 }
 .W2 div{
+ 
     
     width:20%;
     color:black;
-    padding:8px;
+    padding: 5px 8px;
+
     background-color: white;
     margin-top:10px;
 
 }
+.W1 div > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+.W2 div > div{
+    height:3px;
+    padding-bottom: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .W3 div{
     width:20%;
     color:black;
@@ -265,6 +333,24 @@ span{
     padding:8px;
     background-color: white;
     margin-top:10px; 
+}
+
+@keyframes rotate
+{
+
+    from 
+    {
+       
+        transform: rotate(0deg);
+     
+    }
+
+    to
+    {
+      
+        transform: rotate(360deg);
+       
+    }
 }
 
 @keyframes dance {
