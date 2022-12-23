@@ -8,6 +8,7 @@ var ActualWords=[];
  var index;
  var letter=false;
  var className;
+ var Visible=false;
 $(function()
 {
 
@@ -35,17 +36,32 @@ $(function()
   $(".Bulb").click(function()
   {
 
+        if(!Visible)
+        {
+          for(var i=0; i<Words.length; i++)
+          {
+                if($(`${Words[i]}`).opacity()==1)     
+                {
+                  
+                }
+
+                 $(`${Words[i]}`).css({opacity:.6});
+               
+          }
+
+          Visible=true;
+
+        }else{
 
           for(var i=0; i<Words.length; i++)
           {
-              $(`${Words[i]}`).stop(true).animate({opacity:.6},1000, function()
-               {
-                       $(this).animate({opacity:0},1000);
-               }); 
-              
-
+       
+                 $(`${Words[i]}`).css({opacity:0});
                
           }
+          Visible=false;
+        }
+         
   });
 
 
@@ -56,12 +72,24 @@ $(function()
     $(".LetterSelectedArea").children().each(function()
     {
        letter+= `${$(this).text()}`;
+     ;
+       
     })
 
-    console.log(letter);
+    for(var num=0; num<ActualWords.length; num++)
+       {
+        if(letter===ActualWords[num])
+        {
+         
+          $(Words[num]).css("opacity", "1");
+         
+        }
+       }
+
   });
 
   checkClick();
+  
   
    
   GetAllTheWords();
@@ -122,7 +150,10 @@ function GetAllTheWords()
 
   for(var num=0; num<Words.length; num++)
   {
-      console.log($(`${Words[num]}`).text());
+   
+      ActualWords[num]=$(Words[num]).text();
+
+     
   }
    
 
