@@ -61,7 +61,7 @@ main{
 } 
 .W1  div > div, .W2  div > div, .W3 div > div, .W4  div > div,  .W5  div > div, .W6  div > div{
     
-     opacity:0;
+    opacity:0;
 }
 .Bulb:hover
 {

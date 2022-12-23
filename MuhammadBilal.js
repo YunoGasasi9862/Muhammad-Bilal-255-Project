@@ -2,6 +2,8 @@
  var NameArray=['.F','.O','.R','.S', '.P', '.O2', '.K','.E','.N']; //yayay worked!!
  var Words =['.W1  div > div', '.W2  div > div', '.W3  div > div', '.W4  div > div',
               '.W5  div > div','.W6  div > div'];
+
+var ActualWords=[];
  var selected=false;
  var index;
  var letter=false;
@@ -32,19 +34,37 @@ $(function()
 
   $(".Bulb").click(function()
   {
+
+
           for(var i=0; i<Words.length; i++)
           {
-               $(`${Words[i]}`).animate({opacity:.6},1000, function()
+              $(`${Words[i]}`).stop(true).animate({opacity:.6},1000, function()
                {
                        $(this).animate({opacity:0},1000);
-               });
+               }); 
+              
+
+               
           }
-  })
+  });
+
+
+  $("#Circle").contextmenu(function(e)
+  {
+    e.preventDefault();
+    let letter='';
+    $(".LetterSelectedArea").children().each(function()
+    {
+       letter+= `${$(this).text()}`;
+    })
+
+    console.log(letter);
+  });
 
   checkClick();
   
    
-
+  GetAllTheWords();
 
 
 
@@ -95,6 +115,17 @@ function InitialPosition()
 
   return XYValues;
  
+}
+
+function GetAllTheWords()
+{
+
+  for(var num=0; num<Words.length; num++)
+  {
+      console.log($(`${Words[num]}`).text());
+  }
+   
+
 }
 
 function checkClick()
