@@ -3,7 +3,13 @@
  var Words =['.W1  div > div', '.W2  div > div', '.W3  div > div', '.W4  div > div',
               '.W5  div > div','.W6  div > div'];
 
+var background =['.W1  div', '.W2  div', '.W3  div', '.W4  div ',
+'.W5  div','.W6  div'];
+var SelectedWords=[];
+var Main=['.W1','.W2', '.W3', '.W4',
+'.W5','.W6'];
 var ActualWords=[];
+var OverlapWords=['.SameO', '.SameE', '.SameP', '.SameS', '.SSameO']
  var selected=false;
  var index;
  var letter=false;
@@ -32,42 +38,10 @@ $(function()
 
       }
   })
-
-  $(".Bulb").click(function()
-  {
-
-        if(!Visible)
-        {
-          for(var i=0; i<Words.length; i++)
-          {
-                if($(`${Words[i]}`).opacity()==1)     
-                {
-                  
-                }
-
-                 $(`${Words[i]}`).css({opacity:.6});
-               
-          }
-
-          Visible=true;
-
-        }else{
-
-          for(var i=0; i<Words.length; i++)
-          {
-       
-                 $(`${Words[i]}`).css({opacity:0});
-               
-          }
-          Visible=false;
-        }
-         
-  });
-
-
   $("#Circle").contextmenu(function(e)
   {
     e.preventDefault();
+    
     let letter='';
     $(".LetterSelectedArea").children().each(function()
     {
@@ -80,13 +54,131 @@ $(function()
        {
         if(letter===ActualWords[num])
         {
+
+          var count=$(background[num]).children().length;
+          var Array=[];
+            
+          $(background[num]).children().each(function()
+          {
+
+            if($(this).attr("class")!=="undefined")
+            {
+              Array.push($(this).attr("class"));
+
+            }
+          })
+
+          var results= results = Array.filter(element => { //using lamba expression to remove undefined values
+            return element !== undefined;
+          });
+          
+          for(var k=0; k<results.length; k++)
+          {
+       
+                  $(`.${results[k]}`).css("opacity", "1").css("color", "white").css("background", "#884c07");  
+                        
+                 console.log(results[k]);
+          }
+           
+          $(Words[num]).css("opacity", "1").css("color", "white");
+          $(background[num]).css("background", "#884c07");
+
+          for(var i=0; i<SelectedWords.length; i++)
+          {
+            $(`${SelectedWords[i]}`).css("background", "0");
+            selected=false;
+            
+          }
+          $(".LetterSelectedArea").children().each(function()
+          {   
+            $(this).fadeOut(function()
+            {
+                   $(this).remove();
+            }).finish();
+          }); 
+
+          
          
-          $(Words[num]).css("opacity", "1");
-         
+        }else{
+
+          $(".LetterSelectedArea").children().each(function()
+          {   
+            $(this).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100, function()
+            {
+                   $(this).remove();
+
+            });
+          
+
+          });  
+
+          for(var i=0; i<SelectedWords.length; i++)
+          {
+            $(`${SelectedWords[i]}`).css("background", "0");
+            selected=false;
+          }
+
+
         }
        }
 
   });
+  $(".Bulb").click(function()
+  {
+
+        if(!Visible)
+        {
+          for(var i=0; i<Words.length; i++)
+          {
+
+
+            $(`${Words[i]}`).each(function()
+            {
+              
+              var opacity=Number($(this).css("opacity"));
+             
+              if(opacity!==1)
+              {
+                $(this).css({opacity:.6});
+
+              }
+             
+            })
+               
+                 
+               
+          }
+
+          Visible=true;
+
+        }else{
+
+          for(var i=0; i<Words.length; i++)
+          {
+            
+            $(`${Words[i]}`).each(function()
+            {
+              
+              var opacity=Number($(this).css("opacity"));
+             
+              if(opacity!==1)
+              {
+                $(`${Words[i]}`).css({opacity:0});
+
+              }
+             
+            })
+
+                
+               
+          }
+          Visible=false;
+        }
+         
+  });
+
+
+ 
 
   checkClick();
   
@@ -177,6 +269,11 @@ function checkClick()
 
                   if(!$("span").hasClass(`.${$(this).attr("class")}`))  //yaya did it!
                   {
+                    //SelectedWords[i]=$(this).text();
+                    var word="."+$(this).attr("class");
+                    SelectedWords.push(word); 
+             
+
                     $(".LetterSelectedArea").append(`<span class=.${$(this).
                       attr("class")}>${$(this).text()}</span>`).width("280px")
                       .css("visibility","visible");
@@ -187,8 +284,7 @@ function checkClick()
                    
                   }
 
-               
-            
+              
            
              
               letter=true;

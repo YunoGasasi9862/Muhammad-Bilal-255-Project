@@ -155,7 +155,7 @@ main{
     
     width:15%;
     height:8%; 
-    left:2%;
+    left:40px;
      top: 49%;
      color:rgb(255, 255, 255);
      visibility: hidden;
@@ -198,15 +198,15 @@ span{
 .W2{
 
     width:70px;
-         
+        
          position: relative;
          display: flex;
        color:white;
        flex-direction: column;
        justify-content: center;
        align-items: center;
-       left:30px;
-       top:-54px;
+       left:31px;
+       top:-54.4px;
 }
 .W3
 {
@@ -244,8 +244,8 @@ span{
     justify-content: center;
     align-items: center;
     color:white;
-    top:-540px;
-    left:155px;
+    top:-590px;
+    left:156px;
 }
 
 
@@ -276,7 +276,7 @@ span{
   justify-content: center;
   align-items: center;
     bottom:874px;
-    left:95px;
+    left:96px;
     
 }
 .W6 div{
