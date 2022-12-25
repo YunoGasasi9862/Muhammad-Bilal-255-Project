@@ -9,9 +9,9 @@ body{
   
     font-family: 'Exo 2', sans-serif;
     height:700px;
-    width: 1300px;
+    width: 1400px;
     margin:0 auto;
-  
+  background-color: rgb(255, 255, 255);
    
 }
 main{
@@ -20,10 +20,46 @@ main{
     
 
 }
+
+.Restart
+{
+    width:120px;
+    background-color: rgb(71, 21, 151);
+    height:40px;
+    position: absolute;
+    top:700px;
+    left:48%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    color:white;
+    transition:ease all 1s;
+    
+}
+.Restart:hover
+{
+    cursor: pointer;
+    background-color: rgb(120, 64, 211);
+
+}
+h1{
+   text-align: center;
+   font-size:25px;
+   padding-top:10px;
+   animation-name: dance;
+   animation-duration: 5s;
+   animation-timing-function: ease-in;
+   animation-fill-mode: backwards;
+   animation-iteration-count: infinite;
+ 
+}
 .TOP
 {
     margin-top:60px;
     position: relative;
+    
 }
 
 #BG
@@ -136,8 +172,7 @@ main{
     cursor:pointer;
     width:100%;
     height:100%;
-    transition:all ease .5s;
-    
+    transition: ease all .5s;
  
 }
 

@@ -19,6 +19,17 @@ $(function()
 {
 
   var Array=InitialPosition();
+
+
+  $(".Restart").click(function(e)
+  {
+    e.stopPropagation();
+    location.reload();
+  })
+
+  
+  
+        
   //shuffle for the first time
  
   $(window).resize(function()  //for resizing as well, so the letters accomodate
@@ -55,11 +66,13 @@ $(function()
         if(letter===ActualWords[num])
         {
 
+
           var count=$(background[num]).children().length;
           var Array=[];
             
           $(background[num]).children().each(function()
           {
+
 
             if($(this).attr("class")!=="undefined")
             {
@@ -77,8 +90,34 @@ $(function()
        
                   $(`.${results[k]}`).css("opacity", "1").css("color", "white").css("background", "#884c07");  
                         
-                 console.log(results[k]);
+                  results[k]="." + results[k];
+                  $(results[k]).parent().css("background", "#884c07");
+                
+
+
           }
+
+       
+          $(background[num]).children().each(function()
+          {
+                if(Number($(this).css("opacity"))===1)
+                {
+                   $(this).stop(true).animate({color: "black"},200).animate({color:"white"},200).animate({color: "black"},200)
+                   .animate({color:"white"},200);
+                   for(var k=0; k<results.length; k++)
+                   {
+                    $(results[k]).stop(true).animate({color: "black"},200).animate({color:"white"},200).animate({color: "black"},200)
+                    .animate({color:"white"},200);; 
+                   }
+           
+
+                }
+          })
+
+          $(".letters").children().each(function()
+          {
+             $(this).css("font-size", "16px");
+          })
            
           $(Words[num]).css("opacity", "1").css("color", "white");
           $(background[num]).css("background", "#884c07");
@@ -89,12 +128,21 @@ $(function()
             selected=false;
             
           }
+
+          
           $(".LetterSelectedArea").children().each(function()
           {   
-            $(this).fadeOut(function()
-            {
-                   $(this).remove();
-            }).finish();
+
+
+       
+       
+              $(this).fadeOut(function()
+              {
+                     $(this).remove();
+              }).finish();
+        
+          
+         
           }); 
 
           
@@ -108,6 +156,11 @@ $(function()
                    $(this).remove();
 
             });
+
+            $(".letters").children().each(function()
+            {
+               $(this).css("font-size", "16px");
+            })
           
 
           });  
@@ -116,6 +169,7 @@ $(function()
           {
             $(`${SelectedWords[i]}`).css("background", "0");
             selected=false;
+          
           }
 
 
@@ -139,6 +193,7 @@ $(function()
              
               if(opacity!==1)
               {
+               
                 $(this).css({opacity:.6});
 
               }
@@ -163,7 +218,7 @@ $(function()
              
               if(opacity!==1)
               {
-                $(`${Words[i]}`).css({opacity:0});
+                $(this).css({opacity:0});
 
               }
              
@@ -179,10 +234,14 @@ $(function()
 
 
  
+ 
+    checkClick();
+ 
 
-  checkClick();
+
   
-  
+        
+ 
    
   GetAllTheWords();
 
@@ -254,20 +313,24 @@ function GetAllTheWords()
 function checkClick()
 {
 
+      var currentDiv;
       for(var i=0; i<NameArray.length; i++)
       {
         $(`${NameArray[i]}`).click(function()
         {
                
               selected=true;
+              var N
               var height= $(this).height();
               height=height;
               $(this).css("background", "#6600CC");
               $(this).css("border-radius", `${height}px`);
-              $(this).css("font-size", "20px").css("user-select", "none");
+              $(this).css("font-size", "20px");
               className=$(this).attr("class");
+              currentDiv=$(this);
 
-                  if(!$("span").hasClass(`.${$(this).attr("class")}`))  //yaya did it!
+        
+                  if(!$("span").hasClass(`.${className}`))  //yaya did it!
                   {
                     //SelectedWords[i]=$(this).text();
                     var word="."+$(this).attr("class");
@@ -282,25 +345,34 @@ function checkClick()
                       $("span").css("border-radius", "300px").width("10px").animate({width: 300});
                       $("span").css("margin-right", "2px");
                    
+                   
                   }
 
-              
-           
-             
-              letter=true;
-              if(letter)
-              {
-                $(`.${className}`).click(function(){
-      
-                   $(this).stop(true).effect("shake", {times:1, distance:35, direction:"up"}, 300);
-                   $(this).css("user-select", "none");
-                  letter=false;
+                
             
-                });
-              }
+                  if($("span").hasClass(`.${className}`))
+                  {
+                    
+                    $(`.${className}`).on('click', function(e){
+                
+    
+                      e.stopPropagation();
+                       
+                  
+                     
+                        $(currentDiv).stop(true).effect("shake", {times:1, distance:35, direction:"up"}, 300);
+                     
+                      
+                
+                    });
+                  }
+               
+         
                
               
         });
-      }  
+      } 
+
+ 
    
 }
